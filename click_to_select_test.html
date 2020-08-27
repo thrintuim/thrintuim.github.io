@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text box test</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        window.onload = function(){
+            let els = document.querySelectorAll("span[tabindex='0'][role='radio']");
+            console.log(els);
+            let count_els = els.length
+            while(count_els) {
+                els[count_els -1].addEventListener("keydown", select_evt);
+                els[count_els -1].addEventListener("click", select_evt);
+                count_els--;
+            }
+
+        }
+
+        let select_evt = function(evt) {
+            const t = evt.target;
+            if (evt.key === " " || evt.type === "click") {
+                if (is_selected(t)) {
+                    deselect(t);
+                }
+                else {
+                    deselect_siblings(t.parentElement);
+                    select(t);
+                }
+            }
+        }
+
+        let select = function(el) {
+            el.setAttribute("aria-checked", "true");
+        }
+
+        let deselect = function(el) {
+            el.removeAttribute("aria-checked");
+        }
+
+        let is_selected = function(el) {
+            return el.hasAttribute("aria-checked");
+        }
+        let deselect_siblings = function(el) {
+            let child_el = el.querySelector("*[aria-checked]");
+            try {
+                child_el.removeAttribute("aria-checked");
+            }
+            catch (TypeError) {
+                console.log("no aria-selected to remove. Moving on");
+            }
+            
+        }
+    </script>
+    <style type="text/css">
+        span[aria-checked] {
+            background-color: rgba(0,0,0,0.25);
+        }
+    </style>
+</head>
+<body>
+    <h1>This is a test for the click to select template</h1>
+    
+<div class="clkToSelect_ClickToSelect" data-bind="foreach: controlsJSON.clickToSelect.selectStrings(),attr:{'aria-multiselectable':controlsJSON.clickToSelect.multiSelect()?'true':'false'}" role="radiogroup" aria-orientation="horizontal" aria-multiselectable="false">
+        <span tabindex="0" role="radio" class="clkToSelect_SingleSelect" id="UITemplateContainer_answerTemplateContainer_clkToSelect0">Kip learns best by thinking about the “why” behind facts. </span>
+    
+        <span tabindex="0" role="radio" class="clkToSelect_SingleSelect clkToSelect_TextSelected" id="UITemplateContainer_answerTemplateContainer_clkToSelect1">Carly learns best by thinking creatively.</span>
+    </div>
+</body>
+</html>
