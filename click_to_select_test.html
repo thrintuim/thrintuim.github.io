@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <script type="text/javascript">
         window.onload = function(){
-            let els = document.querySelectorAll("span[tabindex='0'][role='radio']");
+            var els = document.querySelectorAll("span[tabindex='0'][role='radio']");
             console.log(els);
             let count_els = els.length
             while(count_els) {
@@ -13,12 +13,20 @@
                 els[count_els -1].addEventListener("click", select_evt);
                 count_els--;
             }
-            let els = document.querySelectorAll("span[tabindex='0'][role='option']");
+            els = document.querySelectorAll("div:not(#old) > span[tabindex='0'][role='option']");
             console.log(els);
-            let count_els = els.length
+            count_els = els.length
             while(count_els) {
                 els[count_els -1].addEventListener("keydown", select_evt);
                 els[count_els -1].addEventListener("click", select_evt);
+                count_els--;
+            }
+            els = document.querySelectorAll("#old > span[tabindex='0'][role='option']");
+            console.log(els);
+            count_els = els.length
+            while(count_els) {
+                els[count_els -1].addEventListener("keydown", old_select_evt);
+                els[count_els -1].addEventListener("click", old_select_evt);
                 count_els--;
             }
 
@@ -32,13 +40,27 @@
                     deselect(t, type);
                 }
                 else {
-                    deselect_siblings(t.parentElement);
+                    deselect_sibling(t.parentElement);
                     select(t, type);
                 }
             }
         }
+        let old_select_evt = function(evt) {
+            const t = evt.target;
+            const type = t.getAttribute("role");
+            if (evt.key === " " || evt.type === "click") {
+                console.log(is_selected_attr(t));
+                if (is_selected_attr(t)) {
+                    unselect_sibling(t.parentElement);
+                    select(t, type);
+                }
+                else {
+                    unselect(t, type);
+                }
+            }
+        }
 
-        let select = function(el) {
+        let select = function(el, type) {
             if (type === "radio" || type === "checkbox") {
                 el.setAttribute("aria-checked", "true");
             }
@@ -47,17 +69,24 @@
             }
         }
 
-        let deselect = function(el) {
+        let deselect = function(el, type) {
             if (type === "radio" || type === "checkbox") {
                 el.removeAttribute("aria-checked");
             }
+        }
+        let unselect = function(el) {
+                el.setAttribute("aria-selected", "false");
         }
 
         let is_selected = function(el) {
             return el.hasAttribute("aria-checked") || el.hasAttribute("aria-selected");
         }
 
-        let deselect_siblings = function(el) {
+        let is_selected_attr = function(el) {
+            return el.getAttribute("aria-checked") || el.getAttribute("aria-selected");
+        }
+
+        let deselect_sibling = function(el) {
             let child_el = el.querySelector("*[aria-checked]");
             try {
                 child_el.removeAttribute("aria-checked");
@@ -65,18 +94,24 @@
             catch (TypeError) {
                 console.log("no aria-checked to remove. Moving on");
             }
-            let child_el = el.querySelector("*[aria-selected]");
+            child_el = el.querySelector("*[aria-selected]");
             try {
                 child_el.removeAttribute("aria-selected");
             }
             catch (TypeError) {
                 console.log("no aria-selected to remove. Moving on");
             }
-            
+        }
+
+        let unselect_sibling = function (el) {
+            let child_els = el.querySelectorAll("*[aria-selected='true']");
+            for (let i = 0; i < child_els.length; i++) {
+                unselect(child_els[i]);
+            }
         }
     </script>
     <style type="text/css">
-        span[aria-checked] {
+        span[aria-checked],span[aria-selected='true'] {
             background-color: rgba(0,0,0,0.25);
         }
     </style>
@@ -84,15 +119,21 @@
 <body>
     <h1>This is a test for the click to select template</h1>
     
-<div class="clkToSelect_ClickToSelect" data-bind="foreach: controlsJSON.clickToSelect.selectStrings(),attr:{'aria-multiselectable':controlsJSON.clickToSelect.multiSelect()?'true':'false'}" role="radiogroup" aria-orientation="horizontal" aria-multiselectable="false">
+    <div role="radiogroup" aria-orientation="horizontal" aria-multiselectable="false">
         <span tabindex="0" role="radio" class="clkToSelect_SingleSelect" id="UITemplateContainer_answerTemplateContainer_clkToSelect0">Kip learns best by thinking about the “why” behind facts. </span>
     
         <span tabindex="0" role="radio" class="clkToSelect_SingleSelect clkToSelect_TextSelected" id="UITemplateContainer_answerTemplateContainer_clkToSelect1">Carly learns best by thinking creatively.</span>
     </div>
-    <div class="clkToSelect_ClickToSelect" data-bind="foreach: controlsJSON.clickToSelect.selectStrings(),attr:{'aria-multiselectable':controlsJSON.clickToSelect.multiSelect()?'true':'false'}" role="listbox" aria-orientation="horizontal" aria-multiselectable="false">
+    <div role="listbox" aria-orientation="horizontal" aria-multiselectable="false">
         <span tabindex="0" role="option" class="clkToSelect_SingleSelect" id="UITemplateContainer_answerTemplateContainer_clkToSelect0">Kip learns best by thinking about the “why” behind facts. </span>
     
         <span tabindex="0" role="option" class="clkToSelect_SingleSelect clkToSelect_TextSelected" id="UITemplateContainer_answerTemplateContainer_clkToSelect1">Carly learns best by thinking creatively.</span>
     </div>
+    <div id="old" role="listbox" aria-orientation="horizontal" aria-multiselectable="false">
+        <span tabindex="0" role="option" class="clkToSelect_SingleSelect" id="UITemplateContainer_answerTemplateContainer_clkToSelect0" aria-selected="false">Kip learns best by thinking about the “why” behind facts. </span>
+    
+        <span tabindex="0" role="option" class="clkToSelect_SingleSelect clkToSelect_TextSelected" id="UITemplateContainer_answerTemplateContainer_clkToSelect1" aria-selected="false">Carly learns best by thinking creatively.</span>
+    </div>
+
 </body>
 </html>
