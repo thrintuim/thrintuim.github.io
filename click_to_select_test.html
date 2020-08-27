@@ -13,37 +13,61 @@
                 els[count_els -1].addEventListener("click", select_evt);
                 count_els--;
             }
+            let els = document.querySelectorAll("span[tabindex='0'][role='option']");
+            console.log(els);
+            let count_els = els.length
+            while(count_els) {
+                els[count_els -1].addEventListener("keydown", select_evt);
+                els[count_els -1].addEventListener("click", select_evt);
+                count_els--;
+            }
 
         }
 
         let select_evt = function(evt) {
             const t = evt.target;
+            const type = t.getAttribute("role");
             if (evt.key === " " || evt.type === "click") {
-                if (is_selected(t)) {
-                    deselect(t);
+                if (is_selected(t, type)) {
+                    deselect(t, type);
                 }
                 else {
                     deselect_siblings(t.parentElement);
-                    select(t);
+                    select(t, type);
                 }
             }
         }
 
         let select = function(el) {
-            el.setAttribute("aria-checked", "true");
+            if (type === "radio" || type === "checkbox") {
+                el.setAttribute("aria-checked", "true");
+            }
+            else {
+                el.setAttribute("aria-selected", "true");
+            }
         }
 
         let deselect = function(el) {
-            el.removeAttribute("aria-checked");
+            if (type === "radio" || type === "checkbox") {
+                el.removeAttribute("aria-checked");
+            }
         }
 
         let is_selected = function(el) {
-            return el.hasAttribute("aria-checked");
+            return el.hasAttribute("aria-checked") || el.hasAttribute("aria-selected");
         }
+
         let deselect_siblings = function(el) {
             let child_el = el.querySelector("*[aria-checked]");
             try {
                 child_el.removeAttribute("aria-checked");
+            }
+            catch (TypeError) {
+                console.log("no aria-checked to remove. Moving on");
+            }
+            let child_el = el.querySelector("*[aria-selected]");
+            try {
+                child_el.removeAttribute("aria-selected");
             }
             catch (TypeError) {
                 console.log("no aria-selected to remove. Moving on");
@@ -64,6 +88,11 @@
         <span tabindex="0" role="radio" class="clkToSelect_SingleSelect" id="UITemplateContainer_answerTemplateContainer_clkToSelect0">Kip learns best by thinking about the “why” behind facts. </span>
     
         <span tabindex="0" role="radio" class="clkToSelect_SingleSelect clkToSelect_TextSelected" id="UITemplateContainer_answerTemplateContainer_clkToSelect1">Carly learns best by thinking creatively.</span>
+    </div>
+    <div class="clkToSelect_ClickToSelect" data-bind="foreach: controlsJSON.clickToSelect.selectStrings(),attr:{'aria-multiselectable':controlsJSON.clickToSelect.multiSelect()?'true':'false'}" role="listbox" aria-orientation="horizontal" aria-multiselectable="false">
+        <span tabindex="0" role="option" class="clkToSelect_SingleSelect" id="UITemplateContainer_answerTemplateContainer_clkToSelect0">Kip learns best by thinking about the “why” behind facts. </span>
+    
+        <span tabindex="0" role="option" class="clkToSelect_SingleSelect clkToSelect_TextSelected" id="UITemplateContainer_answerTemplateContainer_clkToSelect1">Carly learns best by thinking creatively.</span>
     </div>
 </body>
 </html>
