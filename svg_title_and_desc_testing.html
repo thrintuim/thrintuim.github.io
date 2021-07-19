@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <title>Testing for title and desc elements in SVG</title>
+</head>
+
+<body>
+  <h1>SVG title and desc testing</h1>
+  <p>The following SVG has a title and desc element. The desc element has text in it.</p>
+  <svg version="1.1" width="225" viewBox="0 0 225 225" xmlns="http://www.w3.org/2000/svg">
+    <title>Cartesian Graph</title>
+    <desc>The graph of an rational equation with an even degree denominator which is decreasing from the horizontal asymptote to −Infinity on the left of the vertical asymptote and increasing from −Infinity to the horizontal asymptote on the right of the vertical asymptote.</desc>
+    <use x="0" y="0" href="#graph" />
+  </svg>
+  <p>The following SVG has a title and desc element, aria-labelledby and aria-describedby. The desc element has text in it.</p>
+  <svg version="1.1" width="225" viewBox="0 0 225 225" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title1" aria-describedby="desc1">
+    <title id="title1">Cartesian Graph</title>
+    <desc id="desc1">The graph of an rational equation with an even degree denominator which is decreasing from the horizontal asymptote to −Infinity on the left of the vertical asymptote and increasing from −Infinity to the horizontal asymptote on the right of the vertical asymptote.</desc>
+    <use x="0" y="0" href="#graph" />
+  </svg>
+  <p>The following SVG has a title and desc element, and role img. The desc element has text in it.</p>
+  <svg version="1.1" width="225" viewBox="0 0 225 225" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title2" aria-describedby="desc2">
+    <title id="title2">Cartesian Graph</title>
+    <desc id="desc2">The graph of an rational equation with an even degree denominator which is decreasing from the horizontal asymptote to −Infinity on the left of the vertical asymptote and increasing from −Infinity to the horizontal asymptote on the right of the vertical asymptote.</desc>
+    <use x="0" y="0" href="#graph" />
+  </svg>
+  <p>The following SVG has a title and desc element, aria-labelledby and aria-describedby and role img. The desc element has text in it.</p>
+  <svg version="1.1" width="225" viewBox="0 0 225 225" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="18Graphs_10_title" aria-describedby="18Graphs_10_desc">
+    <title id="18Graphs_10_title">Cartesian Graph</title>
+    <desc id="18Graphs_10_desc">The graph of an rational equation with an even degree denominator which is decreasing from the horizontal asymptote to −Infinity on the left of the vertical asymptote and increasing from −Infinity to the horizontal asymptote on the right of the vertical asymptote.</desc>
+    <g class="graph" id="graph" aria-hidden="true">
+      <g class="grid">
+        <g class="cartesian-grid" stroke="grey" stroke-width="0.25">
+          <path d="M25,25h175m0,17.5h-175m0,17.5h175m0,17.5h-175m0,17.5h175m0,17.5h-175m0,17.5h175m0,17.5h-175m0,17.5h175m0,17.5h-175m0,17.5h175"></path>
+          <path d="M25,25v175m17.5,0v-175m17.5,0v175m17.5,0v-175m17.5,0v175m17.5,0v-175m17.5,0v175m17.5,0v-175m17.5,0v175m17.5,0v-175m17.5,0v175"></path>
+        </g>
+        <g class="axis">
+          <g class="horizontal-axis">
+            <path stroke="black" stroke-width="2" d="M7.5,112.5H217.5"></path>
+            <text class="variable" text-anchor="middle" x="212.5" y="100">x</text>
+            <path class="arrow" d="M220,112.5l-15,-6.334972l4.051173,6.3349721l-4.051173,6.3349721Z"></path>
+            <path class="arrow" d="M5,112.5l15,-6.334972l-4.051173,6.3349721l4.051173,6.3349721Z"></path>
+          </g>
+          <g class="vertical-axis">
+            <path stroke="black" stroke-width="2" d="M112.5,7.5V217.5"></path>
+            <text class="variable" x="125" y="18" text-anchor="middle">y</text>
+            <path class="arrow" d="M112.5,220l-6.334972-15l6.3349721,4.051173l6.3349721,-4.051173Z"></path>
+            <path class="arrow" d="M112.5,5l-6.334972,15l6.3349721,-4.051173l6.3349721,4.051173Z"></path>
+          </g>
+        </g>
+      </g>
+      <g class="graph-objects">
+        <g class="curve">
+          <path stroke="blue" stroke-width="1.5" fill="none" d="M26.75,116.0714286L42.5,116.875L60,118.3333333L64.375,118.8636364L68.75,119.5L73.125,120.2777778L77.5,121.25L79.6875,121.8333333L81.875,122.5L84.0625,123.2692308L86.25,124.1666667L88.4375,125.2272727L90.625,126.5L92.8125,128.0555556L95,130L96.75,131.9444444L98.5,134.375L100.25,137.5L102,141.6666667L103.75,147.5L105.5,156.25L107.25,170.8333333L108.825,195.8333333"></path>
+          <path fill="blue" class="arrow" d="M25,116L40.245876,110.282034L35.939718,116.446519L39.729166,122.941437Z"></path>
+          <path fill="blue" class="arrow" d="M109,200L114.699947,184.747378L108.540554,189.060818L102.041163,185.279047Z"></path>
+          <path stroke="blue" stroke-width="1.5" fill="none" d="M116.175,195.8333333L117.75,170.8333333L119.5,156.25L121.25,147.5L123,141.6666667L124.75,137.5L126.5,134.375L128.25,131.9444444L130,130L132.1875,128.0555556L134.375,126.5L136.5625,125.2272727L138.75,124.1666667L140.9375,123.2692308L143.125,122.5L147.5,121.25L151.875,120.2777778L156.25,119.5L160.625,118.8636364L165,118.3333333L182.5,116.875L198.25,116.0714286"></path>
+          <path fill="blue" class="arrow" d="M116,200L122.958837,185.279047L116.459446,189.060818L110.300053,184.747378Z"></path>
+          <path fill="blue" class="arrow" d="M200,116L185.270834,122.941437L189.060282,116.446519L184.754124,110.282034Z"></path>
+        </g>
+      </g>
+    </g>
+  </svg>
+  <p>The following SVG has a title and desc element. The desc has markup in it.</p>
+  <svg version="1.1" width="225" viewBox="0 0 225 225" xmlns="http://www.w3.org/2000/svg">
+    <title>Cartesian Graph</title>
+    <desc>The graph of an rational equation <math><mfrac><mn>1</mn><mi>x</mi></mfrac></math> with an even degree denominator which is decreasing from the horizontal asymptote to −Infinity on the left of the vertical asymptote and increasing from −Infinity to the horizontal asymptote on the right of the vertical asymptote.</desc>
+    <use x="0" y="0" href="#graph" />
+  </svg>
+  <p>The following SVG has a title and desc element aria-labelledby and aria-describedby. The desc has markup in it.</p>
+  <svg version="1.1" width="225" viewBox="0 0 225 225" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title3" aria-describedby="desc3">
+    <title id="title3">Cartesian Graph</title>
+    <desc id="desc3">The graph of an rational equation <math><mfrac><mn>1</mn><mi>x</mi></mfrac></math> with an even degree denominator which is decreasing from the horizontal asymptote to −Infinity on the left of the vertical asymptote and increasing from −Infinity to the horizontal asymptote on the right of the vertical asymptote.</desc>
+    <use x="0" y="0" href="#graph" />
+  </svg>
+  <p>The following SVG has a title and desc element and role img. The desc has markup in it.</p>
+  <svg version="1.1" width="225" viewBox="0 0 225 225" xmlns="http://www.w3.org/2000/svg" role="img">
+    <title>Cartesian Graph</title>
+    <desc>The graph of an rational equation <math><mfrac><mn>1</mn><mi>x</mi></mfrac></math> with an even degree denominator which is decreasing from the horizontal asymptote to −Infinity on the left of the vertical asymptote and increasing from −Infinity to the horizontal asymptote on the right of the vertical asymptote.</desc>
+    <use x="0" y="0" href="#graph" />
+  </svg>
+  <p>The following SVG has a title and desc element aria-labelledby and aria-describedby, and role img. The desc has markup in it.</p>
+   <svg version="1.1" width="225" viewBox="0 0 225 225" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title4" aria-describedby="desc4">
+    <title id="title4">Cartesian Graph</title>
+    <desc id="desc4">The graph of an rational equation <math><mfrac><mn>1</mn><mi>x</mi></mfrac></math> with an even degree denominator which is decreasing from the horizontal asymptote to −Infinity on the left of the vertical asymptote and increasing from −Infinity to the horizontal asymptote on the right of the vertical asymptote.</desc>
+    <use x="0" y="0" href="#graph" />
+  </svg>
+  
+  
+</body>
+
+</html>
