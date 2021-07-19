@@ -17,11 +17,16 @@
   <p>with different mrow markup: <math><mrow><mo>{</mo><mrow><mi>x</mi><mo>|</mo><mrow><mrow><mo>−</mo><mn>3</mn></mrow><mo>&lt;</mo><mi>x</mi><mo>≤</mo><mn>9</mn></mrow></mrow><mo>}</mo></mrow></math></p>
   <p>same mrow markup but replace curly brackets with parens: <math><mrow><mo>(</mo><mrow><mi>x</mi><mo>|</mo><mrow><mrow><mo>−</mo><mn>3</mn></mrow><mo>&lt;</mo><mi>x</mi><mo>≤</mo><mn>9</mn></mrow></mrow><mo>)</mo></mrow></math></p>
   <p>with mfenced markup: <math><mfenced open="{" close="}"><mrow><mi>x</mi><mo>|</mo><mrow><mrow><mo>−</mo><mn>3</mn></mrow><mo>&lt;</mo><mi>x</mi><mo>≤</mo><mn>9</mn></mrow></mrow></mfenced></math></p>
-  <p>with mfenced markup and | separator: <math><mfenced open="{" close="}" separators="|"><mi>x</mi><mrow><mrow><mo>−</mo><mn>3</mn></mrow><mo>&lt;</mo><mi>x</mi><mo>≤</mo><mn>9</mn></mrow></mfenced></math></p>\
+  <p>with mfenced markup and | separator: <math><mfenced open="{" close="}" separators="|"><mi>x</mi><mrow><mrow><mo>−</mo><mn>3</mn></mrow><mo>&lt;</mo><mi>x</mi><mo>≤</mo><mn>9</mn></mrow></mfenced></math></p>
   <p>function notation mfenced: <math><mi>f</mi><mfenced><mi>x</mi></mfenced></math></p>
   <p>function notation mfenced and function application: <math><mi>f</mi><mo>&#x2061;</mo><mfenced><mi>x</mi></mfenced></math></p>
   <p>function notation mrow mo: <math><mi>f</mi><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></math></p>
   <p>function notation mrow mo function application: <math><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></math></p>
+  <p>mfenced with multiple arguments and default separators. Expectation is "left paren one comma two comma three comma four right paren". <math><mfenced><mn>1</mn><mn>2</mn><mn>3</mn><mn>4</mn></mfenced></math></p>
+  <p>mfenced with specified separators. Expectation is "left paren one semi-colon two comma three slash four right paren". <math><mfenced separators=";,/"><mn>1</mn><mn>2</mn><mn>3</mn><mn>4</mn></mfenced></math></p>
+  <p>mfenced with open close with |: <math><mfenced open="|" close="|"><mi>x</mi><mrow><mrow><mo>−</mo><mn>3</mn></mrow><mo>&lt;</mo><mi>x</mi><mo>≤</mo><mn>9</mn></mrow></mfenced></math></p>
+  <p>mfenced with open close with &#x27e6; and &#x27e7;: <math><mfenced open="&#x27e6;" close="&#x27e7;"><mi>x</mi><mrow><mrow><mo>−</mo><mn>3</mn></mrow><mo>&lt;</mo><mi>x</mi><mo>≤</mo><mn>9</mn></mrow></mfenced></math></p>
+  <p>mfenced with open close with &#x2329; and &#x232A;: <math><mfenced open="&#x2329;" close="&#x232A;"><mi>x</mi><mrow><mrow><mo>−</mo><mn>3</mn></mrow><mo>&lt;</mo><mi>x</mi><mo>≤</mo><mn>9</mn></mrow></mfenced></math></p>
   
 </body>
 
