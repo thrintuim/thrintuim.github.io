@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dropdown testing</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"> -->
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <style>
+    div > ul > li {
+      display:  inline;
+      border: solid thin black;
+    }
+    div {
+      display:  inline;
+    }
+  </style>
+</head>
+
+<body aria-busy="true">
+  <p>with tab index on user dropdown.</p>
+  <div class="row">
+    <ul class="nav-list" id="navbar-hawkes">
+      <!--2015-05-05: Nikki changed the links to ~/../.. after Ben updated the structure of the nav bar so links would work properly -->
+      <li id="nl-logo">
+        <a href="#!" title="Courses" id="btn_Dashboard">Submit Assignment</a>
+      </li>
+      <li id="nl-user" class="dropdown">
+        <a class="hh-triggerControl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="tools-dropdown" href="#!" tabindex="0">
+          <div id="nl-user-name">
+              <span id="settingsStudentName" class="" title="Options" aria-hidden="true">DOUG CHAPPELL</span>
+          </div>
+          <span class="sr-only">Site Options</span><!-- Screen Reader Item -->
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu user-menu" style="right: 0; left: auto;" role="menu">
+          <li role="presentation">
+            <form action="/Portal/User/LogOut" id="logoutForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="LdGFAKF-VOsmQRRSoA-slbAAnk7DpuxZo8vcB9TYebDdPoCwXQP_41N_qn6obttwWtFd9FR8p_IPkw7_nDGSf-XphQXq-Mr3zAbHSCIEMSBgpwUaKGGbQAqkfL6LJsEqpIa-TA2"> <a href="javascript:document.getElementById('logoutForm').submit()" onclick="HideAlerts();" id="lnkSignOut" role="menuitem" tabindex="-1">Sign Out</a>
+            </form>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <p>without tab index on user dropdown.</p>
+  <div class="row">
+    <ul class="nav-list" id="navbar-hawkes">
+      <!--2015-05-05: Nikki changed the links to ~/../.. after Ben updated the structure of the nav bar so links would work properly -->
+      <li id="nl-logo">
+        <a href="#!" title="Courses" id="btn_Dashboard">Submit Assignment</a>
+      </li>
+      <li id="nl-user" class="dropdown">
+        <a class="hh-triggerControl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="tools-dropdown" href="#!">
+          <div id="nl-user-name">
+              <span id="settingsStudentName" class="" title="Options" aria-hidden="true">DOUG CHAPPELL</span>
+          </div>
+          <span class="sr-only">Site Options</span><!-- Screen Reader Item -->
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu user-menu" style="right: 0; left: auto;" role="menu">
+          <li role="presentation">
+            <form action="/Portal/User/LogOut" id="logoutForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="LdGFAKF-VOsmQRRSoA-slbAAnk7DpuxZo8vcB9TYebDdPoCwXQP_41N_qn6obttwWtFd9FR8p_IPkw7_nDGSf-XphQXq-Mr3zAbHSCIEMSBgpwUaKGGbQAqkfL6LJsEqpIa-TA2"> <a href="javascript:document.getElementById('logoutForm').submit()" onclick="HideAlerts();" id="lnkSignOut" role="menuitem" tabindex="-1">Sign Out</a>
+            </form>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>
