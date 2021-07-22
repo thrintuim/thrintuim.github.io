@@ -9,7 +9,7 @@
 <body aria-busy="true">
   <h1>aria-busy testing</h1>
   <p>aria busy status <span id="status">true</span></p>
-  <p>iPadOS VoiceOver expectations: </p>
+  <p>iPadOS VoiceOver expectations: VoiceOver will not be able to access page content while aria-busy is true and will be able to access it when aria-busy is false.</p>
   <script>
     window.setTimeout(notbusy, 2000);
     function notbusy () {
