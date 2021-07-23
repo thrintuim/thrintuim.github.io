@@ -6,16 +6,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   <title>table announcement testing</title>
   <style>
-    .sr-only {
-      position: absolute !important;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      border: 0;
-    }
     table {
       border-collapse: collapse;
     }
@@ -45,7 +35,7 @@
       <td>2</td>
     </tr>
   </table>
-  <p>Table with 3 rows.</p>
+  <p>Table with 3 rows  and row headers.</p>
   <table>
     <tr>
       <th scope="row">x</th>
@@ -93,23 +83,6 @@
       <td>2</td>
     </tr>
   </table>
-  <p>table with row headers and math content.</p>
-  <table>
-    <tr>
-      <th scope="row">x</th>
-      <td><math><mn>1</mn></math></td>
-      <td><math><mn>0</mn></math></td>
-      <td><math><mn>3</mn></math></td>
-      <td><math><mn>1</mn></math></td>
-    </tr>
-    <tr>
-      <th scope="row">y</th>
-      <td><math><mn>0</mn></math></td>
-      <td><math><mn>1</mn></math></td>
-      <td><math><mn>1</mn></math></td>
-      <td><math><mn>2</mn></math></td>
-    </tr>
-  </table>
   <p>table with column headers</p>
   <p>iPadOS VoiceOver: announces row header, column header for <code>th</code> in first row even though scope is specifically set to col.</p>
   <table>
@@ -138,148 +111,7 @@
       </tr>
     </tbody>
   </table>
-  <p>A reproduction of the grid template.</p>
-  <form>
-    <table class="data-table">
-      <tbody>
-        <tr>
-          <th scope="row" id="row_0_header" style="text-align: center; vertical-align: middle;">
-            <span class="GridTable_Div"><var>x</var></span>
-          </th>
-          <td style="text-align: center; vertical-align: middle;">
-            <span class="sr-only" id="col_2_header">column 1</span>
-            <span class="GridTable__Div_NoPad">
-              <span class="FractionCell" id="MatrixTextBoxes2_ctrl">
-                <label class="labelStyle PrefixSuffixStyle qml_base_font" for="MatrixTextBoxes2_num" id="MatrixTextBoxes2_prefix" aria-hidden="false"></label>
-                <span class="FractionBoxStyle">
-                  <span class="QFractionBox" id="MatrixTextBoxes2">
-                    <label class="sr-only" for="MatrixTextBoxes2_num" id="MatrixTextBoxes2_numerator" aria-hidden="false">Answer</label>
-                    <input type="text" autocomplete="off" spellcheck="false" autocapitalize="off" name="numerator" role="textbox" onpaste="quant_wp_UI.onPasteHandler(event)" oninput="quant_wp_UI.onInputHandler(this,event)" class="boxStyle boxStyleFont1 nocontextmenu" id="MatrixTextBoxes2_num" aria-labelledby="row_0_header col_2_header MatrixTextBoxes2_prefix MatrixTextBoxes2_numerator MatrixTextBoxes2_num MatrixTextBoxes2_suffix" aria-hidden="false" aria-disabled="false" style="width: 53px; text-align: left;">
-                    <span aria-hidden="true">
-                      <span class="hrStyleSpan" style="display: none;"></span>
-                      <label class="sr-only" for="MatrixTextBoxes2_den" id="MatrixTextBoxes2_denomenator" aria-hidden="true" style="display: none;">Answer Denominator</label>
-                      <input type="text" autocomplete="off" spellcheck="false" autocapitalize="off" name="denomenator" role="textbox" class="boxStyle boxStyleFont1 nocontextmenu" id="MatrixTextBoxes2_den" data-aria-labelledby="MatrixTextBoxes2_prefix MatrixTextBoxes2_denomenator MatrixTextBoxes2_den MatrixTextBoxes2_suffix" hidden style="width: 53px; text-align: left; display: none;">
-                    </span>
-                  </span>
-                </span>
-                <label class="PrefixSuffixStyle qml_base_font labelStyle" for="MatrixTextBoxes2_num" id="MatrixTextBoxes2_suffix" aria-hidden="false"></label>
-              </span>
-            </span>
-          </td>
-          <td style="text-align: center; vertical-align: middle;">
-            <span class="sr-only" id="col_3_header">column 2</span>
-            <span class="GridTable_Div">
-              <math><mn>0</mn></math>
-            </span>
-           
-          </td>
-          <td data-colindex="3" style="text-align: center; vertical-align: middle;">
-            <span class="sr-only" id="col_4_header">column 3</span>
-            <span class="GridTable_Div">
-              <math><mn>3</mn></math>
-            </span>
-          </td>
-          <td data-colindex="4" style="text-align: center; vertical-align: middle;">
-            <span class="sr-only" id="col_5_header">column 4</span>
-            <span class="GridTable__Div_NoPad">
-              <span class="FractionCell" id="MatrixTextBoxes5_ctrl">
-                <label class="labelStyle PrefixSuffixStyle qml_base_font" for="MatrixTextBoxes5_num" id="MatrixTextBoxes5_prefix" aria-hidden="false"></label>
-                <span class="FractionBoxStyle">
-                  <span class="QFractionBox" id="MatrixTextBoxes5">
-                    <label class="sr-only" for="MatrixTextBoxes5_num" id="MatrixTextBoxes5_numerator" aria-hidden="false">Answer</label>
-                    <input type="text" autocomplete="off" spellcheck="false" autocapitalize="off" name="numerator" role="textbox" onpaste="quant_wp_UI.onPasteHandler(event)" oninput="quant_wp_UI.onInputHandler(this,event)" class="boxStyle boxStyleFont1 nocontextmenu" id="MatrixTextBoxes5_num" aria-labelledby="row_0_header col_5_header MatrixTextBoxes5_prefix MatrixTextBoxes5_numerator MatrixTextBoxes5_num MatrixTextBoxes5_suffix" aria-hidden="false" aria-disabled="false" style="width: 53px; text-align: left;">
-                    <span aria-hidden="true">
-                      <span class="hrStyleSpan" style="display: none;"></span>
-                      <label class="sr-only" for="MatrixTextBoxes5_den" id="MatrixTextBoxes5_denomenator" aria-hidden="true" style="display: none;">Answer Denominator</label>
-                      <input type="text" autocomplete="off" spellcheck="false" autocapitalize="off" name="denomenator" role="textbox" onpaste="quant_wp_UI.onPasteHandler(event)" oninput="quant_wp_UI.onInputHandler(this,event)" class="boxStyle boxStyleFont1 nocontextmenu" id="MatrixTextBoxes5_den" data-aria-labelledby="MatrixTextBoxes5_prefix MatrixTextBoxes5_denomenator MatrixTextBoxes5_den MatrixTextBoxes5_suffix" hidden style="width: 53px; text-align: left; display: none;">
-                    </span>
-                  </span>
-                </span>
-                <label class="PrefixSuffixStyle qml_base_font labelStyle" for="MatrixTextBoxes5_num" id="MatrixTextBoxes5_suffix" aria-hidden="false"></label>
-              </span>
-            </span>
-          </td>
-        </tr>
-        <tr data-rowindex="1">
-          <th scope="row" id="row_1_header" data-colindex="0" style="text-align: center; vertical-align: middle;">
-            <span class="GridTable_Div"><var>y</var></span>
-          </th>
-          <td data-colindex="1" style="text-align: center; vertical-align: middle;">
-            <span class="GridTable_Div">
-              <math><mn>0</mn></math>
-            </span>
-          </td>
-          <td data-colindex="2" style="text-align: center; vertical-align: middle;">
-            <span class="GridTable__Div_NoPad">
-              <span class="FractionCell" id="MatrixTextBoxes8_ctrl">
-                <label class="labelStyle PrefixSuffixStyle qml_base_font" for="MatrixTextBoxes8_num" id="MatrixTextBoxes8_prefix" aria-hidden="false"></label>
-                <span class="FractionBoxStyle">
-                  <span class="QFractionBox" id="MatrixTextBoxes8">
-                    <label class="sr-only" for="MatrixTextBoxes8_num" id="MatrixTextBoxes8_numerator" aria-hidden="false">Answer</label>
-                    <input type="text" autocomplete="off" spellcheck="false" autocapitalize="off" name="numerator" role="textbox" onpaste="quant_wp_UI.onPasteHandler(event)" oninput="quant_wp_UI.onInputHandler(this,event)" class="boxStyle boxStyleFont1 nocontextmenu" id="MatrixTextBoxes8_num" aria-labelledby="row_1_header col_3_header MatrixTextBoxes8_prefix MatrixTextBoxes8_numerator MatrixTextBoxes8_num MatrixTextBoxes8_suffix" aria-hidden="false" aria-disabled="false" style="width: 53px; text-align: left;">
-                    <span aria-hidden="true">
-                      <span class="hrStyleSpan" style="display: none;"></span>
-                      <label class="sr-only" for="MatrixTextBoxes8_den" id="MatrixTextBoxes8_denomenator" aria-hidden="true" style="display: none;">Answer Denominator</label>
-                      <input type="text" autocomplete="off" spellcheck="false" autocapitalize="off" name="denomenator" role="textbox" onpaste="quant_wp_UI.onPasteHandler(event)" oninput="quant_wp_UI.onInputHandler(this,event)" class="boxStyle boxStyleFont1 nocontextmenu" id="MatrixTextBoxes8_den" data-aria-labelledby="MatrixTextBoxes8_prefix MatrixTextBoxes8_denomenator MatrixTextBoxes8_den MatrixTextBoxes8_suffix" hidden style="width: 53px; text-align: left; display: none;">
-                    </span>
-                  </span>
-                </span>
-                <label class="PrefixSuffixStyle qml_base_font labelStyle" for="MatrixTextBoxes8_num" id="MatrixTextBoxes8_suffix" aria-hidden="false"></label>
-              </span>
-            </span>
-          </td>
-          <td data-colindex="3" style="text-align: center; vertical-align: middle;">
-            <span class="GridTable__Div_NoPad">
-              <span class="FractionCell" id="MatrixTextBoxes9_ctrl">
-                <label class="labelStyle PrefixSuffixStyle qml_base_font" for="MatrixTextBoxes9_num" id="MatrixTextBoxes9_prefix" aria-hidden="false"></label>
-                <span class="FractionBoxStyle">
-                  <span class="QFractionBox" id="MatrixTextBoxes9">
-                    <label class="sr-only" for="MatrixTextBoxes9_num" id="MatrixTextBoxes9_numerator" aria-hidden="false">Answer</label>
-                    <input type="text" autocomplete="off" spellcheck="false" autocapitalize="off" name="numerator" role="textbox" onpaste="quant_wp_UI.onPasteHandler(event)" oninput="quant_wp_UI.onInputHandler(this,event)" class="boxStyle boxStyleFont1 nocontextmenu" id="MatrixTextBoxes9_num" aria-labelledby="row_1_header col_4_header MatrixTextBoxes9_prefix MatrixTextBoxes9_numerator MatrixTextBoxes9_num MatrixTextBoxes9_suffix" aria-hidden="false" aria-disabled="false" style="width: 53px; text-align: left;">
-                    <span aria-hidden="true">
-                      <span class="hrStyleSpan" style="display: none;"></span>
-                      <label class="sr-only" for="MatrixTextBoxes9_den" id="MatrixTextBoxes9_denomenator" aria-hidden="true" style="display: none;">Answer Denominator</label>
-                      <input type="text" autocomplete="off" spellcheck="false" autocapitalize="off" name="denomenator" role="textbox" onpaste="quant_wp_UI.onPasteHandler(event)" oninput="quant_wp_UI.onInputHandler(this,event)" class="boxStyle boxStyleFont1 nocontextmenu" id="MatrixTextBoxes9_den" data-aria-labelledby="MatrixTextBoxes9_prefix MatrixTextBoxes9_denomenator MatrixTextBoxes9_den MatrixTextBoxes9_suffix" hidden style="width: 53px; text-align: left; display: none;">
-                    </span>
-                  </span>
-                </span>
-                <label class="PrefixSuffixStyle qml_base_font labelStyle" for="MatrixTextBoxes9_num" id="MatrixTextBoxes9_suffix" aria-hidden="false"></label>
-              </span>
-            </span>
-          </td>
-          <td data-colindex="4" style="text-align: center; vertical-align: middle;">
-            <span class="GridTable_Div">
-              <math><mn>2</mn></math>
-            </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </form>
-  <p>An attempt at a more sane grid template</p>
-  <form>
-    <table>
-      <tr>
-        <th scope="row">x</th>
-        <td>
-          <label for="sane_grid_1_num" class="sr-only">Answer 1</label>
-          <input type="text" autocomplete="off" spellcheck="false" autocapitalize="off" name="numerator" onpaste="quant_wp_UI.onPasteHandler(event)" oninput="quant_wp_UI.onInputHandler(this,event)" class="boxStyle boxStyleFont1 nocontextmenu" id="sane_grid_1_num" style="width: 53px; text-align: left;"></td>
-        <td>0</td>
-        <td>3</td>
-        <td><label for="sane_grid_2_num" class="sr-only">Answer 2</label>
-          <input type="text" autocomplete="off" spellcheck="false" autocapitalize="off" name="numerator" onpaste="quant_wp_UI.onPasteHandler(event)" oninput="quant_wp_UI.onInputHandler(this,event)" class="boxStyle boxStyleFont1 nocontextmenu" id="sane_grid_2_num" style="width: 53px; text-align: left;"></td>
-      </tr>
-      <tr>
-        <th scope="row">y</th>
-        <td>0</td>
-        <td><label for="sane_grid_3_num" class="sr-only">Answer 3</label>
-          <input type="text" autocomplete="off" spellcheck="false" autocapitalize="off" name="numerator" onpaste="quant_wp_UI.onPasteHandler(event)" oninput="quant_wp_UI.onInputHandler(this,event)" class="boxStyle boxStyleFont1 nocontextmenu" id="sane_grid_3_num" style="width: 53px; text-align: left;"></td>
-        <td><label for="sane_grid_4_num" class="sr-only">Answer 4</label>
-          <input type="text" autocomplete="off" spellcheck="false" autocapitalize="off" name="numerator" onpaste="quant_wp_UI.onPasteHandler(event)" oninput="quant_wp_UI.onInputHandler(this,event)" class="boxStyle boxStyleFont1 nocontextmenu" id="sane_grid_4_num" style="width: 53px; text-align: left;"></td>
-        <td>2</td>
-      </tr>
-    </table>
-  </form>
+  
 </body>
 
 </html>
