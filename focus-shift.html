@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" >
+  <title>Programmatic focus shift testing</title>
+</head>
+
+<body aria-busy="true">
+  <h1>Programmatic focus shift testing</h1>
+  <p>The purpose of this page is to test how programmatically shifting the focus to an element that doesn't naturally receive focus works or does not work for iPadOS VoiceOver.</p>
+  <p>The following link will move focus to the <button onclick="move_me_to_first_header()">first header</button>. This header has a tabindex that is set in the HTML.</p>
+  <p>The following link will move focus to the <button onclick="move_me_to_second_header()">second header</button>. This header has a tabindex that is set in the event listener before calling the focus method on the header.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <h2 tabindex="-1" id="header1">I'm the first header</h2>
+  <h2 id="header2">I'm the second header</h2>
+  <script>
+    function move_me_to_first_header () {
+      document.getElementById("header1").focus()
+    }
+    function move_me_to_second_header () {
+      const header2 = document.getElementById("header2")
+      header2.setAttribute("tabindex", "-1")
+      header2.focus()
+    }
+  </script>
+</body>
+
+</html>
