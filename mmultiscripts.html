@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <title>mmultiscripts</title>
+</head>
+
+<body>
+  <h1><code>mmultiscripts</code></h1>
+    <h2>no <code>none</code> arguments</h2>
+        <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <mi>post subscript</mi>
+                <mi>post superscript</mi>
+                <mprescripts />
+                <mi>pre subscript</mi>
+                <mi>pre superscript</mi>
+            </mmultiscripts>
+        </math>
+    </p>
+    <h2>one none argument</h2>
+    <h3><code>none</code> in pre subscript</h3>
+        <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <mi>post subscript</mi>
+                <mi>post superscript</mi>
+                <mprescripts />
+                <none />
+                <mi>pre superscript</mi>
+            </mmultiscripts>
+        </math>
+    </p>
+    <h3><code>none</code> in pre superscript</h3>
+        <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <mi>post subscript</mi>
+                <mi>post superscript</mi>
+                <mprescripts />
+                <mi>pre subscript</mi>
+                <none />
+            </mmultiscripts>
+        </math>
+    </p>
+    <h3><code>none</code> in post superscript</h3>
+        <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <mi>post subscript</mi>
+                <none />
+                <mprescripts />
+                <mi>pre subscript</mi>
+                <mi>pre superscript</mi>
+            </mmultiscripts>
+        </math>
+    </p>
+    <h3><code>none</code> in post subscript argument</h3>
+        <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <none />
+                <mi>post superscript</mi>
+                <mprescripts />
+                <mi>pre subscript</mi>
+                <mi>pre superscript</mi>
+            </mmultiscripts>
+        </math>
+    </p>
+    <h2>two <code>none</code> arguments</h2>
+    <h3><code>none</code> in post scripts</h3>
+        <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <none />
+                <none />
+                <mprescripts />
+                <mi>pre subscript</mi>
+                <mi>pre superscript</mi>
+            </mmultiscripts>
+        </math>
+    </p>
+    <h3><code>none</code> in pre scripts</h3>
+        <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <mi>post subscript</mi>
+                <mi>post superscript</mi>
+                <mprescripts />
+                <none />
+                <none />
+            </mmultiscripts>
+        </math>
+    </p>
+    <h3><code>none</code> in sub scripts</h3>
+        <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <none />
+                <mi>post superscript</mi>
+                <mprescripts />
+                <none />
+                <mi>pre superscript</mi>
+            </mmultiscripts>
+        </math></p>
+    <h3><code>none</code> in super scripts</h3>
+        <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <mi>post subscript</mi>
+                <none />
+                <mprescripts />
+                <mi>pre subscript</mi>
+                <none />
+            </mmultiscripts>
+        </math></p>
+    <h3><code>none</code> in pre sub post super</h3>
+    <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <mi>post subscript</mi>
+                <none />
+                <mprescripts />
+                <none />
+                <mi>pre superscript</mi>
+            </mmultiscripts>
+        </math></p>
+    <h3><code>none</code> in pre super post sub</h3>
+    <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <none />
+                <mi>post superscript</mi>
+                <mprescripts />
+                <mi>pre subscript</mi>
+                <none />
+            </mmultiscripts>
+        </math></p>
+
+    <h2>three <code>none</code> arguments</h2>
+    <h3><code>none</code> in all but post subscript</h3>
+    <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <mi>post subscript</mi>
+                <none />
+                <mprescripts />
+                <none />
+                <none />
+            </mmultiscripts>
+        </math>
+    </p>
+    <h3><code>none</code> in all but post superscript</h3>
+    <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <none />
+                <mi>post superscript</mi>
+                <mprescripts />
+                <none />
+                <none />
+            </mmultiscripts>
+        </math>
+    </p>
+    <h3><code>none</code> in all but pre subscript</h3>
+    <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <none />
+                <none />
+                <mprescripts />
+                <mi>pre subscript</mi>
+                <none />
+            </mmultiscripts>
+        </math>
+    </p>
+    <h3><code>none</code> in all but pre superscript</h3>
+    <p><math>
+            <mmultiscripts>
+                <mi>base</mi>
+                <none>
+                <none>
+                <mprescripts />
+                <none>
+                <mi>pre superscript</mi>
+            </mmultiscripts>
+        </math>
+    </p>
+    <p>End of file</p>
+  
+
+</body>
+
+</html>
