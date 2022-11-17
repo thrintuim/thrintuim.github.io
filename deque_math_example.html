@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <title>aria-label as fallback for math content</title>
+</head>
+
+<body>
+  <h1>aria-label as fall back for math content</h1>
+  <p>The following is modified from an example in Deque University for how math should be markedup. The goal is to show that this method is actively harmful to the user experience.</p>
+  <h2>Example 1: Math element with parent that has aria-label</h2>
+  <p>Expectation from Deque: Screen readers that announce MathML will skip the <code>@aria-label</code> and process the MathML.</p>
+  <p>Actual result: Screen readers that announce MathML read the <code>@aria-label</code> and ignore the inner MathML.</p>
+  <p><div role="math" aria-label="I'm announcing the aria-label">
+        <math>
+            <mfrac>
+                <mn>1</mn>
+                <mn>2</mn>
+            </mfrac>
+            <mo>+</mo>
+            <mfrac>
+                <mn>1</mn>
+                <mn>2</mn>
+            </mfrac>
+            <mo>=</mo>
+            <mn>1</mn>
+        </math>
+    </div>
+  </p>
+  <h2>Example 2: raw mathml</h2>
+  <p>Expectation: Screen readers that can process MathML will announce "one half plus one half equals 1" or some approximation. Screen readers that cannot process MathMl will announce nothing.</p>
+  <p><math>
+    <mfrac>
+        <mn>1</mn>
+        <mn>2</mn>
+    </mfrac>
+    <mo>+</mo>
+    <mfrac>
+        <mn>1</mn>
+        <mn>2</mn>
+    </mfrac>
+    <mo>=</mo>
+    <mn>1</mn>
+</math></p>
+</body>
+
+</html>
