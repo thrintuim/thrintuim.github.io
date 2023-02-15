@@ -11,7 +11,7 @@
       <main>
         <h1>Generic element announcement and reading order inclusion</h1>
         <p>Used to test how generic elements are included into the reading order when provided a <code>tabindex</code>, <code>aria-label</code>, or both. VoiceOver on OSX, at least, includes <code>div</code> div elements in the reading order if they have a tab index. <code>div</code> and <code>span</code> elements with a tabindex have an outline provided.</p><p>The show aria-label button will expose the content of that <code>aria-label</code> as a <code>:before</code> pseudo element.</p>
-        <button id="showLabel" type="button">show aria-label</button>
+        <!-- <button id="showLabel" type="button">show aria-label</button> -->
         <section>
             <h2><code>div</code> element</h2>
             <section>
@@ -81,7 +81,7 @@
             </section>
         </section>
       </main>
-      <script>
+      <!-- <script>
         function handleShowLabel (evt) {
           const showLabelText = "show aria-label"
           const hideLabelText = "hide aria-label"
@@ -108,6 +108,6 @@
 
         const showLabel = document.getElementById("showLabel")
         showLabel.addEventListener("click", handleShowLabel)
-      </script>
+      </script> -->
     </body>
 </html>
