@@ -1,0 +1,113 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+          [aria-label], [tabindex] {
+            outline: solid thick darkred;
+          }
+        </style>
+    </head>
+    <body>
+      <main>
+        <h1>Generic element announcement and reading order inclusion</h1>
+        <p>Used to test how generic elements are included into the reading order when provided a <code>tabindex</code>, <code>aria-label</code>, or both. VoiceOver on OSX, at least, includes <code>div</code> div elements in the reading order if they have a tab index. <code>div</code> and <code>span</code> elements with a tabindex have an outline provided.</p><p>The show aria-label button will expose the content of that <code>aria-label</code> as a <code>:before</code> pseudo element.</p>
+        <button id="showLabel" type="button">show aria-label</button>
+        <section>
+            <h2><code>div</code> element</h2>
+            <section>
+            <h3><code>div</code> with no attributes for control</h3>
+            <div>
+                <p>I'm some inner content</p>
+                <p>even more stuff</p>
+            </div>
+            </section>
+            <section>
+            <h3><code>tabindex</code> only</h3>
+            <h4><code>tabindex</code> 0</h4>
+            <div tabindex="0">
+                <p>I'm some inner content</p>
+                <p>even more stuff</p>
+            </div>
+            <h4><code>tabindex</code> -1</h4>
+            <div tabindex="-1">
+                <p>I'm some inner content</p>
+                <p>even more stuff</p>
+            </div>
+            </section>
+            <section>
+            <h3><code>aria-label</code> only</h3>
+            <div aria-label="I have a tabindex of 0">
+                <p>I'm some inner content</p>
+                <p>even more stuff</p>
+            </div>
+            </section>
+            <section>
+            <h3><code>tabindex</code> and <code>aria-label</code></h3>
+            <h4><code>tabindex</code> 0 and <code>aria-label</code></h4>
+            <div tabindex="0" aria-label="I have a tabindex of 0">
+                <p>I'm some inner content</p>
+                <p>even more stuff</p>
+            </div>
+            <h4><code>tabindex</code> -1 and <code>aria-label</code></h4>
+            <div tabindex="-1" aria-label="I have a tabindex of -1">
+                <p>I'm some inner content</p>
+                <p>even more stuff</p>
+            </div>
+            </section>
+        </section>
+        <section>
+            <h2><code>span</code> element</h2>
+            <section>
+            <h3>no attributes for control</h3>
+            <p>I have a <span>span</span> element!</p>
+            </section>
+            <section>
+            <h3><code>tabindex</code> only</h3>
+            <h4><code>tabindex</code> 0</h4>
+            <p>I have a <span tabindex="0">span</span> element!</p>
+            <h4><code>tabindex</code> -1</h4>
+            <p>I have a <span tabindex="-1">span</span> element!</p>
+            </section>
+            <section>
+            <h3><code>aria-label (aria-label on a span)</code> only</h3>
+            <p>I have a <span aria-label="aria-label on a span">span</span> element!</p>
+            </section>
+            <section>
+            <h3><code>tabindex</code> and <code>aria-label</code></h3>
+            <h4><code>tabindex</code> 0 and <code>aria-label (tabindex=0 and aria-label on a span)</code></h4>
+            <p>I have a <span tabindex="0" aria-label="tabindex=0 and aria-label on a span">span</span> element!</p>
+            <h4><code>tabindex</code> -1 and <code>aria-label (tabindex=-1 and aria-label on a span)</code></h4>
+            <p>I have a <span tabindex="-1" aria-label="tabindex=-1 and aria-label on a span">span</span> element!</p>
+            </section>
+        </section>
+      </main>
+      <script>
+        function handleShowLabel (evt) {
+          const showLabelText = "show aria-label"
+          const hideLabelText = "hide aria-label"
+          const styleId = "showLabelStyle"
+          let showLabelStyle = document.getElementById(styleId)
+          if (showLabelStyle) {
+            showLabelStyle.remove()
+            evt.target.innerText = showLabelText
+            return true
+          }
+          showLabelStyle = document.createElement("style")
+          showLabelStyle.id = styleId
+          showLabelStyle.innerText = `
+            [aria-label]:before {
+              content: "aria-label on element: " attr(aria-label);
+              color: white;
+              background: darkred;
+            }
+          `
+          document.head.append(showLabelStyle)
+          evt.target.innerText = hideLabelText
+          return true
+        }
+
+        const showLabel = document.getElementById("showLabel")
+        showLabel.addEventListener("click", handleShowLabel)
+      </script>
+    </body>
+</html>
