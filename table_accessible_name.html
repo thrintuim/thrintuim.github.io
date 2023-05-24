@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Table accessible name testing</title>
+</head>
+
+<body>
+<main>
+    <h1>Accessible table names</h1>
+    <p>The purpose of this codepen is to examine the behavior of screen readers when the accessible table names are defined by <code>caption</code>, <code>aria-label</code>, and <code>aria-labelledby</code>.</p>
+    <h2><code>caption</code></h2>
+    <table>
+      <caption>named by caption</caption>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Quest</th>
+          <th scope="col">Favorite color</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Arthur, King of the Britons</td>
+          <td>To seek the Holy Grail</td>
+          <td>Gold</td>
+        </tr>
+        <tr>
+          <td>Sir Lancelot</td>
+          <td>To seek the Holy Grail</td>
+          <td>Blue</td>
+        </tr>
+        <tr>
+          <td>Sir Robin</td>
+          <td><button type="button">To bravely run away</button></td>
+          <td>Yellow</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>some text after the table with a <button type="button">fancy button</button> in it to focus</p>
+    <h2><code>aria-label</code></h2>
+    <table aria-label="named by aria-label">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Quest</th>
+          <th scope="col">Favorite color</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Arthur, King of the Britons</td>
+          <td>To seek the Holy Grail</td>
+          <td>Gold</td>
+        </tr>
+        <tr>
+          <td>Sir Lancelot</td>
+          <td>To seek the Holy Grail</td>
+          <td>Blue</td>
+        </tr>
+        <tr>
+          <td>Sir Robin</td>
+          <td><button type="button">To bravely run away</button></td>
+          <td>Yellow</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>some text after the table with a <button type="button">fancy button</button> in it to focus</p>
+    <h2 id="label"><code>aria-labelledby</code></h2>
+    <p aria-hidden="true" id="label2">named by</p>
+    <table aria-labelledby="label2 label">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Quest</th>
+          <th scope="col">Favorite color</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Arthur, King of the Britons</td>
+          <td>To seek the Holy Grail</td>
+          <td>Gold</td>
+        </tr>
+        <tr>
+          <td>Sir Lancelot</td>
+          <td>To seek the Holy Grail</td>
+          <td>Blue</td>
+        </tr>
+        <tr>
+          <td>Sir Robin</td>
+          <td><button type="button">To bravely run away</button></td>
+          <td>Yellow</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>some text after the table with a <button type="button">fancy button</button> in it to focus</p>
+    
+  </main>
+</body>
+</html>  
